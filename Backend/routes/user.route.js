@@ -1,11 +1,11 @@
 import express from "express"
 const router = express.Router()
 import { body } from "express-validator" // it is used to validate the body
-import userController from "./../Controllers/user.controller.js"
+import registerUser from "./../Controllers/user.controller.js"
 
 router.post(
   "/register",
-  [
+  [ 
     body("email").isEmail().withMessage("Email is not valid"),
     body("password")
       .isLength({ min: 6 })
@@ -14,7 +14,7 @@ router.post(
         .isLength({ min: 3 })
         .withMessage("Full Name must be at least 3 characters long"),
   ],
-  userController.registerUser
+  registerUser 
 )
 
 export default router

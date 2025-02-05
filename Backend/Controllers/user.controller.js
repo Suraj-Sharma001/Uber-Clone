@@ -1,8 +1,8 @@
 import User from './../Models/user.model.js'
 
-export default registerUser = async (req, res, next) => {
+const registerUser = async (req, res) => {
     try {
-        const { email, password, fullName } = req.body
+        const {fullName, email, password} = req.body
 
         if(!email || !password || !fullName) {
             return res.status(400).json({ 
@@ -36,3 +36,5 @@ export default registerUser = async (req, res, next) => {
         console.log(error)
     }
 }
+
+export default registerUser
